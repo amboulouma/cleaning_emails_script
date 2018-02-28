@@ -7,7 +7,11 @@ for line in input_f:
 	for email in line.split(' '):
 		if '@' in email:
 			emails.add(email)
-for email in emails:
-    output_f.write(email+'\n')
 input_f.close()
+for email in emails:
+	if email.endswith('\n'):
+		output_f.write(email)
+		continue
+	else:
+		output_f.write(email+'\n')
 output_f.close()
